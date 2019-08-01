@@ -6,6 +6,8 @@ import numpy as np
 
 cap = cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_eye.xml')
+
 
 while(cap.isOpened()):
     #Capture the video by the frame
@@ -32,6 +34,11 @@ while(cap.isOpened()):
         #draw rectangle onto the face 
         cv2.rectangle(frame, (x,y), (end_cordinate_x, end_cordinate_y), color, stroke)
         print('Number of faces found: ', len(faces))
+
+        eyes = eye_cascade.detectMultiScale(roi_gray)    
+        for (ex, ey, ew, eh) in eyes:
+            eye_detect = cv2.rectangle(roi_color,(ex,ey), (ex+ew,ey+eh), (255,0,255), 2)
+
     #Display the frame
     cv2.imshow('Face', frame)
     if cv2.waitKey(20) & 0xFF == ord('q'):
