@@ -17,13 +17,12 @@ while(cap.isOpened()):
     #detect faces and scalefactor for capturing image
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors = 8)
     for (x, y, w, h) in faces:
-        #print(x, y, w, h)
-        #Region of interest 
+        #Region of interest
         roi_gray = gray[y:y+h, x:x+w] #(ycord start, ycord end) same with x cord 
         roi_color = frame[y:y+h, x:x+w]
         #Create new image
-        
         img_item = "new_image.png"
+        #Create image
         cv2.imwrite(img_item, roi_gray)
 
         #Create color
