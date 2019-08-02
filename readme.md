@@ -16,7 +16,7 @@ To run files
 Window will display and program will continously take pictures when user's face is detected.
 
 `python3 face-train.py`
-Program will return images in array values. These values could be used to compare to other images.
+Program will return images in array values to compare differences in images. 
 
 `face_recognition ./known ./unknown`
 This will take all images in unknown folder and known folder and compare for matches.
