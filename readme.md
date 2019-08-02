@@ -9,3 +9,6 @@ The following libraries will need to be installed with PIP
 <li>image</li>
 <li>Django</li>
 </ul>
+
+To run files
+```python or python3 face.py```
